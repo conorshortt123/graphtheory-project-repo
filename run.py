@@ -3,4 +3,6 @@
 
 import regex
 
-print (regex.match("a.b|b*", "bbbbb"))
+userRegex = input("Enter the regex you wish to use: ")
+userString = input("Enter the string you wish to compare against the regex: ")
+print (regex.match(userRegex, userString))
