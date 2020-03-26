@@ -23,10 +23,8 @@ def compile(infix):
     """Return an NFA fragment representing the infix regular expression"""
     # Convert infix to postfix.
     postfix = shunt(infix)
-    print("Postfix = " + postfix)
     # Make postfix a stack of characters.
     postfix = list(postfix)[::-1]
-    print(postfix)
     
     # A stack of NFA fragments.
     nfa_stack = []
@@ -34,7 +32,6 @@ def compile(infix):
     while postfix:
         # Pop a character from postfix
         c = postfix.pop()
-        print("Popping character off")
         if c == '.':
             # Pop two fragments(NFA'S) off the stack.
             frag1 = nfa_stack.pop()
@@ -67,7 +64,7 @@ def compile(infix):
             frag = nfa_stack.pop()
             # Create new start and accept states
             accept = State()
-            start = State(edges=[frag.start, accept])  
+            start = State(edges=[frag.start, accept])
             # Point the old accept states at the new one
             frag.accept.edges.append(accept)
         elif c == '+':
@@ -75,18 +72,17 @@ def compile(infix):
             frag = nfa_stack.pop()
             # Create new start and accept states
             accept = State()
-            #start = State(edges=[frag.start])
-            start = State()
+            start = State(edges=[frag.start])
             # Point the old accept states at the new one
-            frag.accept.edges = (frag.start)
+            frag.accept.edges = (start, accept)
         else:
             accept = State()
             start = State(label=c, edges=[accept])
-         
+
         # Create new instance of Fragment to represent the new NFA
-        newfrag = Fragment(start, accept)  
+        newfrag = Fragment(start, accept)
         # Push new NFA to stack.
-        nfa_stack.append(newfrag) 
+        nfa_stack.append(newfrag)
 
     return nfa_stack.pop()
 
