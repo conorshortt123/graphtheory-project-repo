@@ -23,8 +23,10 @@ def compile(infix):
     """Return an NFA fragment representing the infix regular expression"""
     # Convert infix to postfix.
     postfix = shunt(infix)
+    print("Postfix = " + postfix)
     # Make postfix a stack of characters.
     postfix = list(postfix)[::-1]
+    print(postfix)
     
     # A stack of NFA fragments.
     nfa_stack = []
