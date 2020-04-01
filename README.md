@@ -1,6 +1,8 @@
 # graphtheory-project-repo
 Graph Theory project repository.</br>
-## Conor Shortt - G00360253 - 3RD YR SM 2
+## Author:
+Conor Shortt - G00360253 - 3RD YR SM 2
+## Description:
 A python program that executes regular expressions on strings using Thompson's Construction.<br/>
 ### Instructions</br>
 <b>> git clone https://github.com/conorshortt123/graphtheory-project-repo.git</b></br>
