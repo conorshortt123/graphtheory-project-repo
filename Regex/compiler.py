@@ -2,7 +2,19 @@ from shunting import shunt
 from classes import Fragment, State
 
 def compile(infix):
-	"""Return an NFA fragment representing the infix regular expression"""
+	"""Return an NFA fragment representing the infix regular expression
+
+	Parameters:
+	infix (string): The regular expression passed to the compile function.
+
+	:returns
+	NFA: Returns the NFA on the stack.
+
+	This function calls shunt on the infix parameter to convert it to postfix.
+	The resulting postfix is then read in char by char to create NFA fragments.
+	Fragments are combined recursively until the final NFA is created.
+
+	"""
 	# Convert infix to postfix.
 	postfix = shunt(infix)
 	# Make postfix a stack of characters.

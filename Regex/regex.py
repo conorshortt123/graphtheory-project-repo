@@ -5,7 +5,14 @@ from compiler import compile
 
 # Add a state to a set and follow all of the e arrows.
 def followes(state, current):
-    """Function that follows all epsilon arrows recursively."""
+    """Function that follows all epsilon arrows recursively.
+
+    Parameters:
+    state: Object
+    current: Object
+
+    Follows all epsilon arrows if they are not already in the current array.
+    """
     # Only do something when we haven't already seen the state.
     if state not in current:
         # Put the state into current
@@ -17,7 +24,18 @@ def followes(state, current):
                 followes(x, current)
 
 def match(regex, s):
-    """Returns true if the regular expression matches the input string."""
+    """Returns true if the regular expression matches the input string.
+
+    Parameters:
+    regex (string): The regular expression to use.
+    s (string): The input string from the user.
+
+    :returns
+    The accept states from current
+
+    Calls the compile function to create the NFA, then follows immediate epsilon arrows.
+    Loops through characters in input string and follows all arrows with respective labels.
+    """
     # Returns true if regex (fully) matches the string s. It returns false otherwise.
 
     # Compile the regular expression into an NFA.
