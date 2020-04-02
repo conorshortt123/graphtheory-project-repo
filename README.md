@@ -16,6 +16,5 @@ Doesn't return anything if the tests pass, else returns errors.
 <b>> cd ./Regex/graphtheory-project-repo</b></br>
 <b>> python3 printdocs.py</b></br>
 Follow menu instructions to view extra information on each python script.
-Doesn't return anything if the tests pass, else returns errors.
 ### Program output</br>
 Returns true if and only if the regular expression matches the string, else it returns false.
