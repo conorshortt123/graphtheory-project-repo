@@ -26,6 +26,15 @@ def compile(infix):
 	while postfix:
 		# Pop a character from postfix
 		c = postfix.pop()
+		"""All special character operators.
+		
+		Dot operator: 			Concatenates two NFA fragments with each other.
+		Vertical Bar operator: 	Adds a new start state pointing to two separate fragments,
+								and both frags point to a new accept state.
+		Kleene Star operator:	Accepts 0, 1 or many of the prefixed character.
+		Question mark:			Accept 0, or 1 of the prefixed operator.
+		Plus operator:			Accept 1 or many of the prefixed operator.
+		"""
 		if c == '.':
 			# Pop two fragments(NFA'S) off the stack.
 			frag1 = nfa_stack.pop()
