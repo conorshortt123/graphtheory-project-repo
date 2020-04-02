@@ -2,7 +2,14 @@
 # The Shunting Yard algorithm for regular expressions.
 
 def shunt(infix):
-    """Return the infix regular expression in postfix."""
+    """Return the infix regular expression in postfix.
+
+    Parameter:
+    infix(string): The regular expression to be shunted from infix to postfix
+
+    :returns
+    The postfix stack of operators.
+    """
     infix = list(infix)[::-1]
     # Operator stack.
     opers, postfix = [], []
