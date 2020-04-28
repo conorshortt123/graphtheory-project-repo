@@ -3,7 +3,7 @@
 
 import regex
 
-if __name__ == "__main__":
+def test():
     tests = [
         ["a.b|b*", "bbbbb", True],
         ["a.b|b*", "bbx", False],
