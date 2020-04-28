@@ -2,11 +2,8 @@ import regex
 import compiler
 import shunting
 import classes
-from menu import print_menu
 
-if __name__ == "__main__":
-    print_menu()
-
+def docs():
     print("+-------------------------------+")
     print("|        DOCSTRING PRINT        |")
     print("| Prints info on python program |")
