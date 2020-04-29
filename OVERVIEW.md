@@ -77,7 +77,7 @@ The shunting yard algorithm takes the regular expression string that the user in
 this string is written in [infix notation](https://en.wikipedia.org/wiki/Infix_notation) which involves placing operators between operands. Infix notation is easier to read and write for humans. This infix notation is then parsed by the shunting yard algorithm which compiles it into postfix notation. [Postfix notation](https://en.wikipedia.org/wiki/Reverse_Polish_notation) is a mathematical notation in which operators follow their operands. For example infix notation (a+b*) would be converted to postfix notation ab*+.
 
 <b>*Figure 1: Conversion of infix to postfix.*</b></br>
-![Shunting Yard Algorithm](ShuntingYard1.png)
+![Shunting Yard Algorithm](./Overview_Images/ShuntingYard1.png)
 
 As we can see in figure 1 above, the infix string <b>(a|b).(a*|b*)</b>. This infix notation is converted to postfix using the following steps:
 
@@ -86,14 +86,14 @@ As we can see in figure 1 above, the infix string <b>(a|b).(a*|b*)</b>. This inf
 * Upon encountering a closing bracket, pop any operators off the stack onto the postfix string, and discard brackets.
 
 <b>*Figure 2: Popping operators of greater precedence off the stack.*</b></br>
-![Shunting Yard Algorithm](ShuntingYard2.png)
+![Shunting Yard Algorithm](./Overview_Images/ShuntingYard2.png)
 
 * If you are pushing an operator to the stack that has a lower precedence than the operator on top of the stack, you *must* first *pop* the operator on top of the stack off, and add it to the postfix string, and *then* push the operator to the top of the stack. *See figure 2 above.*
 * Precedence of operators is (* + ? . |) from left to right, kleene star has greatest precedence, then plus, question mark, concatenate, and finally OR operator.
 
 
 <b>*Figure 3: Finding the closed bracket and popping all operators off the stack.*</b></br>
-![Shunting Yard Algorithm](ShuntingYard3.png)
+![Shunting Yard Algorithm](./Overview_Images/ShuntingYard3.png)
 
 * As you can see in figure 3 above the infix has been completely shunted into postfix, and all of the operators are in the correct precedence.
 
@@ -145,17 +145,17 @@ Regex and NFA's are two representations of formal languages. (A formal language 
 ### Example Diagrams of NFA's
 
 <b>*Figure 4: Example of an NFA using the concatenation operator "."*</b></br>
-![Concatenation](Concatenation.png)
+![Concatenation](./Overview_Images/Concatenation.png)
 
 This NFA is an example of the concatenation operator. The concatenation operator combines two NFA fragments with one another to form a single NFA. This is achieved by changing where the states point to, so the new fragment contains the starting state (blue) and points at the start state of the old fragment (purple). The accept state remains the same (red).
 
 <b>*Figure 4: Example of an NFA using the OR/Union operator "|"*.</b></br>
-![OR Operator](Union.png)
+![OR Operator](./Overview_Images/Union.png)
 
 This NFA is again a combination of two fragments. Fragment two is added, and two new states are created. A starting state (blue) is added, and a new accept state (red). The new starting state points to both fragments, and both fragments point to the accept state.
 
 <b>*Figure 5: Example of an NFA using the Kleene star operator "\*"*.</b></br>
-![Kleene Star](KleeneStarFrag.png)
+![Kleene Star](./Overview_Images/KleeneStarFrag.png)
 
 This NFA is an example of the Kleene star operator. The old fragment (blue -> red) is expanded upon by adding two new states inside. The e(psilon) operators are followed instantly, so this fragment will actually be in the accept state instantly, regardless of any inputs, but it will also accept a single or multiple b's as input.
 
