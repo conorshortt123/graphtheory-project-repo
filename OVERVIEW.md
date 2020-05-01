@@ -6,9 +6,9 @@
 ## Introduction:
 This repository contains my project for our graph theory module, semester two of year three. This project is a regular expression engine that was written in Python. And implements [Thompson's Construction Algorithm](https://en.wikipedia.org/wiki/Thompson%27s_construction) and the [Shunting Yard Algorithm](https://en.wikipedia.org/wiki/Shunting-yard_algorithm). </br>
 
-The program takes in two strings from the user through command line arguments, the regular expression, and the string they wish to compare against the regular expression. The regular expression is then converted to a Non - Deterministic Finite Automata (NFA) using Thompson's Construction, and the string is then read into the NFA. If the NFA contains an accept state then the string is accepted by the NFA and the string matches the regular expression.</br>
+The program takes in two strings from the user through command line arguments, the [regular expression](https://en.wikipedia.org/wiki/Regular_expression), and the string they wish to compare against the regular expression. The regular expression is then converted to a [Non - Deterministic Finite Automaton](https://en.wikipedia.org/wiki/Nondeterministic_finite_automaton) (NFA) using Thompson's Construction, and the string is then read into the NFA. If the NFA contains an accept state then the string is accepted by the NFA and the string matches the regular expression.</br>
 
-Regular expressions contain characters that are used as operators, these operators are what the logic of the NFA's are built on. The operators that can be parsed and converted to NFA's are parentheses, dot operator which performs concatenation (*a.b* will accept the string *ab*), OR operator "|" ( *ab|ba* will accept strings *ab*, or *ba*), Kleene star operator * which accepts zero, one or many of the prefixed character, (a\*b will accept the strings *ab*, *abbb*, *abbbbbb*, or even just *a*.), question mark operator ? which accept zero or one of the prefixed character (*a?b* will accept strings *ab*, or *b*), plus operator which accepts one or many of the prefixed character (*a+b* will accepts strings *ab*, *abbbb*, etc). These are all the operators that are contained within the compiler. Below is some of the code behind the compiler:
+Regular expressions contain characters that are used as operators, these operators are what the logic of the NFA's are built on. The operators that can be parsed and converted to NFA's are parentheses, dot operator which performs concatenation (*a.b* will accept the string *ab*), OR operator "|" ( *ab|ba* will accept strings *ab*, or *ba*), Kleene star operator * which accepts zero, one or many of the prefixed character, (a.b\* will accept the strings *ab*, *abbb*, *abbbbbb*, or even just *a*.), question mark operator ? which accept zero or one of the prefixed character (*a?b* will accept strings *ab*, or *b*), plus operator which accepts one or many of the prefixed character (*a.b+* will accepts strings *ab*, *abbbb*, etc). These are all the operators that are contained within the compiler. Below is some of the code behind the compiler:
 
 ```python
                 if c == '.':
@@ -32,16 +32,16 @@ Regular expressions contain characters that are used as operators, these operato
 			frag1.accept.edges.append(accept)
 ```
 
-These are just two of the operators that are in the compiler, look at *compiler.py* for the entire contents of my programs compiler.
+These are just two of the operators that are in the compiler, look at *compiler.py* for the entire contents of my program's compiler.
 
 ## How to Run:
-This program requires you to have Python 3 installed. Python is a widely used high-level programming language first launched in 1991. Since then, Python has been gaining popularity and is considered as one of the most popular and flexible server-side programming languages. So far it has been the easiest programming language for me to learn, as it handles a significant amount of little discrepencies that most programming languages require you to have. Curled brackets, semi-colons, etc.</br>
+This program requires you to have Python 3 installed. Python is a widely used high-level programming language first launched in 1991. Since then, Python has been gaining popularity and is considered as one of the most popular and flexible server-side programming languages. So far it has been the easiest programming language for me to learn, as it handles a significant amount of little discrepancies that most programming languages require you to have. Curled brackets, semi-colons, etc.</br>
 
 Python version 3.7.2 was the version lecturer Ian McGloughlin used for this project, so I followed suit. You can find this version of Python at [python.org](https://www.python.org/downloads/), navigate to specific downloads, this version was released on 24th of December 2018.
 
 Download the installer and select <b>*Install Now*</b>, also select <b>*Install launcher for all users*</b> and <b>*Add Python 3.7 to PATH*</b>. This will allow you to run python scripts from CMD (windows command line).
 
-Once Python is installed you can verify it by opening CMD and typing <b>*python --version*</b>.  If the python is installed succesfully this command will print the python version you installed to the console. You must then clone my repository by typing *<b>git clone https://github.com/conorshortt123/graphtheory-project-repo.git</b>*. You must then navigate to the project folder by typing *<b>cd ./graphtheory-project-repo/Regex_Python_Scripts/</b>*.
+Once Python is installed you can verify it by opening CMD and typing <b>*python --version*</b>.  If the python is installed successfully this command will print the python version you installed to the console. You must then clone my repository by typing *<b>git clone https://github.com/conorshortt123/graphtheory-project-repo.git</b>*. You must then navigate to the project folder by typing *<b>cd ./graphtheory-project-repo/Regex_Python_Scripts/</b>*.
 
 Once in this directory you can run the program by typing *<b>python run.py -r "your regular expression here* -s "your string here"</b>. The program will then return the output "This regular expression matches the string", or "This regular expression does not match the string".
 
@@ -66,12 +66,12 @@ def test():
         (" should match " if test[2] else " should not match ") + test[1]
 ```
 
-These tests run the program with multiple different inputs to test each operator that is allowed by the NFA compiler. If the program returns the expected boolean for each test then there will be no output. But if the test returns the wrong output then errors will be displayed. 
+These tests run the program with multiple different inputs to test each operator that is allowed by the NFA compiler. If the program returns the expected Boolean for each test then there will be no output. But if the test returns the wrong output then errors will be displayed. 
 
 ## Algorithms:
 
 
-This program utilizes two algorithm's as highlighted in the introduction, but that I will detail now. [Thompson's Construction Algorithm](https://en.wikipedia.org/wiki/Thompson%27s_construction) and the [Shunting Yard Algorithm](https://en.wikipedia.org/wiki/Shunting-yard_algorithm) are two algorithm's that are essential in constructing NFA's.
+This program utilizes two algorithms as highlighted in the introduction, but that I will detail now. [Thompson's Construction Algorithm](https://en.wikipedia.org/wiki/Thompson%27s_construction) and the [Shunting Yard Algorithm](https://en.wikipedia.org/wiki/Shunting-yard_algorithm) are two algorithms that are essential in constructing NFA's.
 ### Shunting Yard Algorithm:
 The shunting yard algorithm takes the regular expression string that the user inputs,
 this string is written in [infix notation](https://en.wikipedia.org/wiki/Infix_notation) which involves placing operators between operands. Infix notation is easier to read and write for humans. This infix notation is then parsed by the shunting yard algorithm which compiles it into postfix notation. [Postfix notation](https://en.wikipedia.org/wiki/Reverse_Polish_notation) is a mathematical notation in which operators follow their operands. For example infix notation (a+b*) would be converted to postfix notation ab*+.
@@ -89,7 +89,7 @@ As we can see in figure 1 above, the infix string <b>(a|b).(a*|b*)</b>. This inf
 ![Shunting Yard Algorithm](./Overview_Images/ShuntingYard2.png)
 
 * If you are pushing an operator to the stack that has a lower precedence than the operator on top of the stack, you *must* first *pop* the operator on top of the stack off, and add it to the postfix string, and *then* push the operator to the top of the stack. *See figure 2 above.*
-* Precedence of operators is (* + ? . |) from left to right, kleene star has greatest precedence, then plus, question mark, concatenate, and finally OR operator.
+* Precedence of operators is (* + ? . |) from left to right, Kleene star has greatest precedence, then plus, question mark, concatenate, and finally OR operator.
 
 
 <b>*Figure 3: Finding the closed bracket and popping all operators off the stack.*</b></br>
@@ -138,7 +138,7 @@ As we can see in figure 1 above, the infix string <b>(a|b).(a*|b*)</b>. This inf
 
 ### Thompson's Construction Algorithm:
 
-Thompson's construction algorithm, is a way of converting a regular expression into equivalent non-deterministic finite automaton. NFA's are used to match strings against regular expressions. This algorithm is credited to Ken Thompson but can also be called the McNaughton-Yamada-Thompson algorithm.
+Thompson's construction algorithm is a way of converting a regular expression into equivalent non-deterministic finite automaton. NFA's are used to match strings against regular expressions. This algorithm is credited to Ken Thompson but can also be called the McNaughton-Yamada-Thompson algorithm.
 
 Regex and NFA's are two representations of formal languages. (A formal language in computer science consists of words whose letters are taken from an alphabet and are well formed according to a specific set of rules.) Text processors use regular expressions to describe advanced search patterns, NFA's are better suited for execution using a computer, therefore Thompson's algorithm has a practical interest in relation to executing regular expressions.
 
@@ -159,7 +159,7 @@ This NFA is again a combination of two fragments. Fragment two is added, and two
 
 This NFA is an example of the Kleene star operator. The old fragment (blue -> red) is expanded upon by adding two new states inside. The e(psilon) operators are followed instantly, so this fragment will actually be in the accept state instantly, regardless of any inputs, but it will also accept a single or multiple b's as input.
 
-<b>Some of the thompson's construction algorithm code is as follows:</b>
+<b>Some of the Thompson's construction algorithm code is as follows:</b>
 
 ```python
 if c == '.':
