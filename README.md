@@ -7,8 +7,8 @@ A python program that executes regular expressions on strings using Thompson's C
 ### Instructions</br>
 <b>> git clone https://github.com/conorshortt123/graphtheory-project-repo.git</b></br>
 <b>> cd ./graphtheory-project-repo/Regex_Python_Scripts/</b></br>
-<b>> python3 run.py -r *regex* -s *string*</b></br>
-Parses the regex and string supplied through command line arguments.
+<b>> python3 run.py -r "*regex*" -s "*string*"</b></br>
+Parses the regex and string supplied through command line arguments. Ensure you enclose the regex and string in quotation marks.
 ### Running Tests</br>
 <b>> cd ./graphtheory-project-repo/Regex_Python_Scripts/</b></br>
 <b>> python3 run.py --tests</b></br>
